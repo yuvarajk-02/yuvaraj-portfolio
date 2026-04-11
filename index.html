@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuvaraj K | Portfolio</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    background: #0f172a;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+nav h2 {
+    color: #38bdf8;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #38bdf8;
+}
+
+/* ===== HERO ===== */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #0f172a, #1e293b);
+    color: white;
+    flex-wrap: wrap;
+}
+
+.hero img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #38bdf8;
+    margin: 20px;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero h1 {
+    font-size: 32px;
+}
+
+.hero p {
+    margin: 10px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+}
+
+/* ===== SECTION ===== */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+/* ===== CARD ===== */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    margin: 15px;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* ===== SKILLS ===== */
+.skills span {
+    display: inline-block;
+    background: #38bdf8;
+    color: black;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* ===== EDUCATION ===== */
+.edu-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.edu-image img {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.edu-content {
+    max-width: 400px;
+    text-align: left;
+}
+
+.edu-content h3 {
+    margin-bottom: 10px;
+}
+
+/* ===== CONTACT ===== */
+.contact p {
+    margin: 8px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>Yuvaraj K</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <img src="my-photo.jpeg" alt="Profile Photo">
+    <div class="hero-text">
+        <h1>Hi, I'm Yuvaraj 👋</h1>
+        <p>Software Developer | Fresher</p>
+        <p>I build web applications and solve real-world problems.</p>
+
+        <a href="yuvaraj_resume.pdf" class="btn" download>📄 Download Resume</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Computer Science Engineering student with strong knowledge in Python, Java,
+        and web development. Experienced in building full-stack applications and
+        machine learning-based projects.
+    </p>
+    <p>
+        Skilled in Data Structures, OOPS, DBMS, and backend development.
+        Seeking an entry-level software developer role in a growth-oriented IT company.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>Python</span>
+        <span>Java</span>
+        <span>JavaScript</span>
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>Bootstrap</span>
+        <span>Django</span>
+        <span>React (Basic)</span>
+        <span>MySQL</span>
+        <span>Git</span>
+        <span>Postman</span>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="container">
+
+        <div class="card">
+            <h3>🛡️ Cybersecurity Threat Detection</h3>
+            <p>
+                Machine learning-based intrusion detection system using Random Forest 
+                and Isolation Forest algorithms with real-time monitoring.
+            </p>
+            <p><strong>Tech:</strong> Python, Scikit-learn, Flask</p>
+            <a href="#" class="btn">Live Demo</a>
+            <a href="https://github.com/yuvarajk-02" class="btn">GitHub</a>
+        </div>
+
+        <div class="card">
+            <h3>📚 E-Learning Web Application</h3>
+            <p>
+                Role-based web application with authentication and course management 
+                using Django and MySQL.
+            </p>
+            <p><strong>Tech:</strong> Django, MySQL</p>
+            <a href="#" class="btn">Live Demo</a>
+            <a href="https://github.com/yuvarajk-02" class="btn">GitHub</a>
+        </div>
+
+        <div class="card">
+            <h3>🌐 Full Stack Web Application</h3>
+            <p>
+                Developed during internship with CRUD operations and optimized backend 
+                using Django ORM.
+            </p>
+            <p><strong>Tech:</strong> Django, HTML, CSS, JavaScript</p>
+            <a href="#" class="btn">Live Demo</a>
+            <a href="https://github.com/yuvarajk-02" class="btn">GitHub</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <h2>Education</h2>
+
+    <div class="edu-container">
+
+        <!-- Left: College Image -->
+        <div class="edu-image">
+            <img src="/html and css.jpeg" alt="College Image">
+        </div>
+
+        <!-- Right: College Details -->
+        <div class="edu-content">
+            <h3>B.E Computer Science Engineering</h3>
+            <p><strong>College:</strong> Sri Balaji Chockalingam Engineering College, Arni</p>
+            <p><strong>Duration:</strong> 2022 – 2026</p>
+            <p><strong>CGPA:</strong> 8.0 / 10</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>📧 yuvaraj98430@gmail.com</p>
+    <p>📱 +91-8608429498</p>
+    <p>🔗 https://github.com/yuvarajk-02</p>
+    <p>🔗 https://linkedin.com/in/yuvaraj-k-2519812a4</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Yuvaraj K | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
