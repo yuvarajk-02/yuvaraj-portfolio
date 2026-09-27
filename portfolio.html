@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yuvaraj K — Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #16181D;
+            --ink-soft: #4B4F58;
+            --paper: #F1F3F5;
+            --card: #FFFFFF;
+            --accent: #3654A6;
+            --accent-gold: #E7A94C;
+            --line: #D9DCE1;
+            --radius: 6px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.65;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrap {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(241, 243, 245, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 1.1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color .2s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width .25s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--ink);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .resume-link {
+            color: var(--card) !important;
+            background: var(--ink);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            font-size: 0.9rem !important;
+        }
+
+        .resume-link::after {
+            display: none;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .eyebrow-mark {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent);
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            max-width: 14ch;
+        }
+
+        .hero .role {
+            margin-top: 1.1rem;
+            font-size: 1.15rem;
+            color: var(--ink-soft);
+            max-width: 46ch;
+        }
+
+        .hero .actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform .15s ease, background .2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #2c458a;
+        }
+
+        .btn-ghost {
+            border: 1.5px solid var(--ink);
+            color: var(--ink);
+        }
+
+        .btn-ghost:hover {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .hero-mark {
+            align-self: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 5rem;
+            color: var(--line);
+            line-height: 1;
+            user-select: none;
+        }
+
+        /* Section shared */
+        section {
+            padding: 4.5rem 0;
+        }
+
+        section+section {
+            border-top: 1px solid var(--line);
+        }
+
+        .section-head {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-head .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .section-head h2 {
+            font-size: 1.9rem;
+            margin-top: 0.3rem;
+            letter-spacing: -0.01em;
+        }
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--line);
+}
+
+
+        /* Projects */
+        .project {
+            display: grid;
+            grid-template-columns: 2rem 1fr auto;
+            gap: 1.2rem;
+            align-items: start;
+            padding: 1.6rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .project:first-of-type {
+            border-top: none;
+        }
+
+        .project .idx {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .project h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .project p {
+            color: var(--ink-soft);
+            max-width: 62ch;
+            font-size: 0.97rem;
+        }
+
+        .project .stack {
+            margin-top: 0.6rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--ink-soft);
+        }
+
+        .view-link {
+            align-self: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-decoration: none;
+            white-space: nowrap;
+            border-bottom: 1.5px solid transparent;
+            transition: border-color .2s ease;
+        }
+
+        .view-link:hover {
+            border-color: var(--accent);
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            max-width: 640px;
+        }
+
+        .skill-row {
+            display: grid;
+            grid-template-columns: 120px 1fr 3ch;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .skill-row .name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .bar-track {
+            height: 8px;
+            background: var(--line);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-gold));
+            border-radius: 4px;
+        }
+
+        .skill-row .pct {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            text-align: right;
+        }
+
+        /* Education timeline */
+        .timeline {
+            max-width: 680px;
+            margin-top: 2rem;
+            border-left: 2px solid var(--line);
+            padding-left: 1.8rem;
+        }
+
+        .tl-item {
+            position: relative;
+            padding-bottom: 1.8rem;
+        }
+
+        .tl-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -2.32rem;
+            top: 0.3rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px var(--paper);
+        }
+
+        .tl-item h3 {
+            font-size: 1.05rem;
+        }
+
+        .tl-item .meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--accent);
+            margin: 0.2rem 0 0.3rem;
+        }
+
+        .tl-item p {
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-grid p {
+            color: var(--ink-soft);
+            max-width: 56ch;
+        }
+
+        .contact-block {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.92rem;
+            line-height: 2;
+        }
+
+        .contact-block a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-block a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--ink);
+            color: #B9BEC8;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width:760px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav ul li:not(:last-child) {
+                display: none;
+            }
+
+            .hero .wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-mark {
+                display: none;
+            }
+
+            .project {
+                grid-template-columns: 1.5rem 1fr;
+            }
+
+            .view-link {
+                grid-column: 2;
+                justify-self: start;
+                margin-top: 0.4rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-row {
+                grid-template-columns: 90px 1fr 3ch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="brand">Yuvaraj K<span>.</span></div>
+            <ul>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="./Yuvaraj_Resume_main.pdf" download class="resume-link">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+<section id="home" class="hero">
+    <div class="wrap">
+        <div>
+            <span class="eyebrow-mark">&lt;/&gt;</span>
+
+            <h1>Yuvaraj K, building clean, dependable software.</h1>
+
+            <p class="role">
+                Java Full Stack Developer skilled in React, Java, Spring Boot,
+                REST APIs, and MySQL.
+            </p>
+
+            <div class="actions">
+                <a href="#projects" class="btn btn-primary">View my work</a>
+                <a href="#about" class="btn btn-ghost">Get in touch</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="./yuvaraj_image.jpeg" alt="Yuvaraj K - Java Full Stack Developer">
+        </div>
+    </div>
+</section>
+
+
+    <section id="projects">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="tag">01 — Selected work</span>
+                <h2>Projects</h2>
+            </div>
+
+            <!-- Project 01 -->
+            <div class="project">
+                <span class="idx">01</span>
+                <div>
+                    <h3>Hospital Management System</h3>
+                    <p>
+                        Developed a hospital management system with patient management,
+                        doctor portal, appointment booking, and admin dashboard.
+                    </p>
+                    <div class="stack">HTML · CSS · JavaScript · Spring Boot · MySQL</div>
+
+                </div>
+                <a href="https://github.com/yuvarajk-02/hospital-management-system" class="view-link" target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub →
+                </a>
+            </div>
+
+            <!-- Project 02 -->
+            <div class="project">
+                <span class="idx">02</span>
+                <div>
+                    <h3>E-Learning Web Application</h3>
+                    <p>
+                        Built a full-stack e-learning platform with user authentication,
+                        course management, and responsive user interface.
+                    </p>
+                    <div class="stack">React · Spring Boot · MySQL</div>
+                </div>
+                <a href="https://github.com/yuvarajk-02/E-learning-Skill-up-Web" class="view-link" target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub →
+                </a>
+            </div>
+
+            <!-- Project 03 -->
+            <div class="project">
+                <span class="idx">03</span>
+                <div>
+                    <h3>Food Delivery App</h3>
+                    <p>
+                        Developed a food delivery application with restaurant,
+                        food, user, and order management features.
+                    </p>
+                    <div class="stack">React · Spring Boot · MySQL</div>
+                </div>
+                <a href="https://github.com/yuvarajk-02/food-website" class="view-link" target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub →
+                </a>
+            </div>
+
+            <!-- Project 04 -->
+            <div class="project">
+                <span class="idx">04</span>
+                <div>
+                    <h3>Cyber Threat Detection</h3>
+                    <p>
+                        Developed a machine learning-based cybersecurity system
+                        to identify and analyze potential cyber threats.
+                    </p>
+                    <div class="stack">Python · Machine Learning · Flask</div>
+                </div>
+                <a href="https://github.com/yuvarajk-02/cyber-defense-using-ml" class="view-link" target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub →
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <section id="skills">
+        <div class="wrap">
+            <div class="section-head"> <span class="tag">02 — Toolkit</span>
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-list">
+                <div class="skill-row"> <span class="name">Java</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:95%"></div>
+                    </div> <span class="pct">95%</span>
+                </div>
+                <div class="skill-row"> <span class="name">Spring Boot</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:80%"></div>
+                    </div> <span class="pct">80%</span>
+                </div>
+                <div class="skill-row"> <span class="name">React</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:85%"></div>
+                    </div> <span class="pct">85%</span>
+                </div>
+                <div class="skill-row"> <span class="name">HTML</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:85%"></div>
+                    </div> <span class="pct">85%</span>
+                </div>
+                <div class="skill-row"> <span class="name">CSS</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:80%"></div>
+                    </div> <span class="pct">80%</span>
+                </div>
+                <div class="skill-row"> <span class="name">JavaScript</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:75%"></div>
+                    </div> <span class="pct">75%</span>
+                </div>
+
+                <div class="skill-row"> <span class="name">REST APIs</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:75%"></div>
+                    </div> <span class="pct">75%</span>
+                </div>
+                <div class="skill-row"> <span class="name">MySQL</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:80%"></div>
+                    </div> <span class="pct">80%</span>
+                </div>
+            </div>
+
+            <div class="section-head" style="margin-top:3.5rem;">
+                <span class="tag">03 — Background</span>
+                <h2>Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="tl-item">
+                    <h3>B.E. Computer Science and Engineering</h3>
+                    <div class="meta">Sri Balaji Chockalingam College of Engineering · 2022 – 2026</div>
+                    <p>Coursework spanning data structures, algorithms, database systems, and web development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="tag">04 — About</span>
+                <h2>A little about me</h2>
+            </div>
+
+            <div class="about-grid">
+                <p>
+                    I'm a Computer Science Engineering graduate with a strong interest
+                    in Java Full Stack Development. I have hands-on experience building
+                    web applications using React, Java, Spring Boot, REST APIs, and MySQL.
+                    I enjoy solving real-world problems, learning new technologies, and
+                    developing responsive and user-friendly applications. I'm currently
+                    looking for an opportunity to grow my technical skills and contribute
+                    to a professional development team.
+                </p>
+
+                <div class="contact-block">
+                    Email —
+                    <a href="mailto:yuvaraj98430@gmail.com">
+                        yuvaraj98430@gmail.com
+                    </a><br>
+
+                    Phone —
+                    <a href="tel:+918608429498">
+                        +91 8608429498
+                    </a><br>
+
+                    Location — Chennai, Tamil Nadu, India<br>
+
+                    GitHub —
+                    <a href="https://github.com/yuvarajk-02" target="_blank">
+                        github.com/yuvarajk-02
+                    </a><br>
+
+                    LinkedIn —
+                    <a href="https://www.linkedin.com/in/yuvaraj-k-2519812a4/" target="_blank">
+                        linkedin.com/in/yuvaraj-k-2519812a4
+                    </a><br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        © 2026 Yuvaraj K. All rights reserved.
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const top = section.offsetTop;
+                const height = section.clientHeight;
+                if (pageYOffset >= top - height / 3) current = section.getAttribute("id");
+            });
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) link.classList.add("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
